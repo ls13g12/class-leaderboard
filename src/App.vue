@@ -1,7 +1,8 @@
 <script>
 import AddPlayers from "./components/AddPlayers.vue";
+import MyLeaderboard from "./components/MyLeaderboard.vue";
 export default {
-  components: { AddPlayers },
+  components: { AddPlayers, MyLeaderboard },
   data() {
     return {
       players: [],
@@ -13,10 +14,6 @@ export default {
 <template>
   <div id="app">
     <AddPlayers v-model:players="players" />
-    <ul>
-      <li v-for="player in players" :key="player.name">
-        {{ player.name }} with a score of {{ player.score }}
-      </li>
-    </ul>
+    <MyLeaderboard v-model:players="players" />
   </div>
 </template>

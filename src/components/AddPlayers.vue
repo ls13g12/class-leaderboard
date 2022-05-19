@@ -1,6 +1,5 @@
 <script>
 export default {
-  props: ["players"],
   emits: ["update:players"],
   data() {
     return {
