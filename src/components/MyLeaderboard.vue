@@ -9,14 +9,14 @@ export default {
 <template>
   <table class="table">
     <tbody>
-      <tr>
-        <LeaderboardRow
-          v-for="(player, index) in players"
-          :player="player"
-          :index="index"
-          :key="player.name"
-        />
-      </tr>
+      <LeaderboardRow
+        v-for="(player, index) in players"
+        :player="player"
+        :index="index"
+        :key="player.name"
+        @increment="() => (player.score += 1)"
+        @decrement="() => (player.score -= 1)"
+      />
     </tbody>
   </table>
   <p>

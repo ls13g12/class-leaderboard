@@ -1,23 +1,17 @@
+<style scoped src="../assets/table.css"></style>
+
 <script>
 export default {
   props: ["player"],
   emits: ["update:player"],
-  data() {
-    return {
-      temp_player: this.player,
-    };
-  },
-  methods: {
-    handleIncrementScore() {
-      this.temp_player.score += 1;
-      this.$emit("update:player");
-    },
-  },
 };
 </script>
 
 <template>
-  <th>{{ player.name }}</th>
-  <th>{{ player.score }}</th>
-  <th><button @click="handleIncrementScore()">+1</button></th>
+  <tr>
+    <th>{{ player.name }}</th>
+    <th><button class="decrement" @click="$emit('decrement')">-1</button></th>
+    <th>{{ player.score }}</th>
+    <th><button class="increment" @click="$emit('increment')">+1</button></th>
+  </tr>
 </template>

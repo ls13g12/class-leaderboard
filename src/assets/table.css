@@ -1,0 +1,18 @@
+.increment{
+  font-size: 0.8em;
+  color: green;
+  background-color: lightgreen;
+}
+.decrement{
+  font-size: 0.8em;
+  color: red;
+  background-color: palevioletred;
+}
+
+th {
+  height: 20px;
+  min-width: 40px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
