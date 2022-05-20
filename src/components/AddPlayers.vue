@@ -1,39 +1,38 @@
 <script>
 export default {
+  props: ["players"],
   emits: ["update:players"],
   data() {
     return {
-      players_entered: "",
-      temp_players: [],
+      newPlayer: "",
+      localPlayers: this.players,
     };
   },
   methods: {
-    //user submits a names into the sidebar, one per line, and they are stored as a sorted list
-    submit_names() {
-      this.temp_players = [];
-      let _players = this.players_entered
-        .split("\n")
-        .filter((n) => n)
-        .sort();
-      for (let player of _players) {
-        let new_player = { name: player, score: 0 };
-        this.temp_players.push(new_player);
+    //user submits name and they are added to list
+    submit_name() {
+      if (
+        this.localPlayers &&
+        !this.localPlayers.some((player) => player.name === this.newPlayer)
+      ) {
+        const newPlayerObject = {
+          name: this.newPlayer,
+          score: 0,
+        };
+        this.localPlayers.push(newPlayerObject);
+        //sort all players by name
+        this.localPlayers.sort((a, b) => (a.name > b.name ? 1 : -1));
+        this.$emit("update:players", this.localPlayers);
+        this.newPlayer = "";
       }
-      //sort all players by name
-      this.temp_players.sort((a, b) => (a.name > b.name ? 1 : -1));
-      this.$emit("update:players", this.temp_players);
     },
   },
 };
 </script>
 
 <template>
-  <textarea name="players" v-model="players_entered"></textarea>
-  <button type="button" @click="submit_names()">Submit</button>
+  <tr>
+    <input id="player-input" v-model="newPlayer" />
+    <button type="button" @click="submit_name()">Submit</button>
+  </tr>
 </template>
-
-<style>
-textarea {
-  width: 500px;
-}
-</style>
