@@ -1,5 +1,3 @@
-<style scoped src="../assets/table.css"></style>
-
 <script>
 export default {
   props: ["player"],
@@ -9,9 +7,10 @@ export default {
 
 <template>
   <tr>
-    <th>{{ player.name }}</th>
-    <th><button class="decrement" @click="$emit('decrement')">-1</button></th>
-    <th>{{ player.score }}</th>
-    <th><button class="increment" @click="$emit('increment')">+1</button></th>
+    <td class="name">{{ player.name }}</td>
+    <td><button class="decrement" @click="$emit('decrement')">-1</button></td>
+    <td>{{ player.score }}</td>
+    <td><button class="increment" @click="$emit('increment')">+1</button></td>
+    <td class="tiled-img">pictures to be added</td>
   </tr>
 </template>

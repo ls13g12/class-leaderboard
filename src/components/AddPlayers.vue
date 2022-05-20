@@ -31,3 +31,9 @@ export default {
   <textarea name="players" v-model="players_entered"></textarea>
   <button type="button" @click="submit_names()">Submit</button>
 </template>
+
+<style>
+textarea {
+  width: 500px;
+}
+</style>
