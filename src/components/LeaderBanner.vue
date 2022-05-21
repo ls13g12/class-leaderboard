@@ -14,7 +14,7 @@ export default {
       const topPlayers = this.localPlayers.filter(
         (player) => player.score === this.topScore
       );
-      return topPlayers.map((player) => player.name).join(", ");
+      return topPlayers.map((player) => player.name);
     },
   },
 };
@@ -22,10 +22,18 @@ export default {
 
 <template>
   <div class="banner">
-    <h2 v-if="localPlayers.length > 0">
-      Leading with a score of {{ topScore }} - {{ topPlayers }}
-    </h2>
-    <h2 v-else>Add some players!</h2>
+    <h1 v-if="localPlayers.length < 1">
+      Add some players!
+    </h1>
+    <h1 v-else-if="topScore < 1">
+      Nobody has any points yet!
+    </h1>
+    <h1 v-else-if="topPlayers && topPlayers.length >= 5">
+      There are too many winners to choose from!
+    </h1>
+    <h1 v-else>
+      Leading with a score of {{ topScore }} - {{ topPlayers.join(", ") }}
+    </h1>
   </div>
 </template>
 

@@ -13,6 +13,7 @@ export default {
     submitName() {
       if (
         this.localPlayers &&
+        this.newPlayer &&
         !this.localPlayers.some((player) => player.name === this.newPlayer)
       ) {
         const newPlayerObject = {
@@ -33,12 +34,15 @@ export default {
 <template>
   <tr>
     <td class="name">
-      <input
-        id="player-input"
-        v-model="newPlayer"
-        v-on:keyup.enter="submitName()"
-        placeholder="new name..."
-      />
+      <div class="input-div">
+        <input
+          id="player-input"
+          v-model="newPlayer"
+          v-on:keyup.enter="submitName()"
+          placeholder="new name..."
+        />
+      </div>
+
     </td>
   </tr>
 </template>
