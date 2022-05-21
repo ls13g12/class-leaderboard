@@ -9,21 +9,11 @@ export default {
   <tr>
     <td class="name">{{ player.name }}</td>
     <td>
-      <button 
-        class="decrement" 
-        @mousedown="$emit('decrement')" 
-      >
-        -1
-      </button>
+      <button class="decrement" @mousedown="$emit('decrement')">-1</button>
     </td>
     <td>{{ player.score }}</td>
     <td>
-      <button
-        class="increment"
-        @mousedown="$emit('increment')"
-      >
-        +1
-      </button>
+      <button class="increment" @mousedown="$emit('increment')">+1</button>
     </td>
     <td class="tiled-img-td">
       <div class="tiled-img-div">

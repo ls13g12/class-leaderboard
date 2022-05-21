@@ -22,12 +22,8 @@ export default {
 
 <template>
   <div class="banner">
-    <h1 v-if="localPlayers.length < 1">
-      Add some players!
-    </h1>
-    <h1 v-else-if="topScore < 1">
-      Nobody has any points yet!
-    </h1>
+    <h1 v-if="localPlayers.length < 1">Add some players!</h1>
+    <h1 v-else-if="topScore < 1">Nobody has any points yet!</h1>
     <h1 v-else-if="topPlayers && topPlayers.length >= 5">
       There are too many winners to choose from!
     </h1>

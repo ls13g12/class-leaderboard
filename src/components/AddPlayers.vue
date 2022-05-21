@@ -42,7 +42,6 @@ export default {
           placeholder="new name..."
         />
       </div>
-
     </td>
   </tr>
 </template>

@@ -18,21 +18,27 @@ export default {
   },
   methods: {
     increment(name) {
-      this.incrementBy1(name)
-      this.incrementInterval = setInterval(() => {this.incrementBy1(name)}, 100);
+      this.incrementBy1(name);
+      this.incrementInterval = setInterval(() => {
+        this.incrementBy1(name);
+      }, 100);
     },
-    incrementBy1(name){
+    incrementBy1(name) {
       //selected player object for unique player in players
-      this.localPlayers.filter(player => player.name == name)[0].score += 1;
+      this.localPlayers.filter((player) => player.name == name)[0].score += 1;
     },
     decrement(name) {
-      this.decrementBy1(name)
-      this.decrementInterval = setInterval(() => {this.decrementBy1(name)}, 100);
+      this.decrementBy1(name);
+      this.decrementInterval = setInterval(() => {
+        this.decrementBy1(name);
+      }, 100);
     },
-    decrementBy1(name){
+    decrementBy1(name) {
       //selected player object for unique player in players
-      const selectedPlayer = this.localPlayers.filter(player => player.name == name)[0];
-      if (selectedPlayer.score > 0){
+      const selectedPlayer = this.localPlayers.filter(
+        (player) => player.name == name
+      )[0];
+      if (selectedPlayer.score > 0) {
         selectedPlayer.score -= 1;
       }
       //this.localPlayers[name] += 1;
