@@ -1,5 +1,5 @@
 <style>
-@import "../assets/table.css";
+@import "../assets/base.css";
 </style>
 
 <script>

@@ -10,7 +10,7 @@ export default {
   },
   methods: {
     //user submits name and they are added to list
-    submit_name() {
+    submitName() {
       if (
         this.localPlayers &&
         !this.localPlayers.some((player) => player.name === this.newPlayer)
@@ -32,7 +32,13 @@ export default {
 
 <template>
   <tr>
-    <input id="player-input" v-model="newPlayer" />
-    <button type="button" @click="submit_name()">Submit</button>
+    <td class="name">
+      <input
+        id="player-input"
+        v-model="newPlayer"
+        v-on:keyup.enter="submitName()"
+        placeholder="new name..."
+      />
+    </td>
   </tr>
 </template>
